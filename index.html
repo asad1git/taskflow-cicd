@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow – Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">Task<span>Flow</span></div>
+    <a href="index.html" class="active"><span class="nav-icon">🏠</span> Dashboard</a>
+    <a href="add-task.html"><span class="nav-icon">➕</span> Add Task</a>
+    <a href="task-list.html"><span class="nav-icon">📋</span> Task List</a>
+    <a href="task-detail.html"><span class="nav-icon">🔍</span> Task Detail</a>
+    <a href="contact.html"><span class="nav-icon">📬</span> Contact</a>
+    <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+    <a href="about.html"><span class="nav-icon">ℹ️</span> About</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="content">
+    <div class="page-header">
+      <h1>👋 Welcome back to TaskFlow</h1>
+      <p>Here's a quick overview of all your tasks today.</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="card-grid">
+      <div class="stat-card total">
+        <div class="label">Total Tasks</div>
+        <div class="value">12</div>
+      </div>
+      <div class="stat-card pending">
+        <div class="label">Pending</div>
+        <div class="value">7</div>
+      </div>
+      <div class="stat-card done">
+        <div class="label">Completed</div>
+        <div class="value">5</div>
+      </div>
+    </div>
+
+    <!-- Quick Nav -->
+    <div class="section-title">Quick Actions</div>
+    <div class="card-grid">
+      <a href="add-task.html" class="card" style="text-decoration:none;display:block;">
+        <div style="font-size:28px;margin-bottom:10px;">➕</div>
+        <strong style="font-family:var(--font-head)">Add New Task</strong>
+        <p class="text-muted mt-4">Create a task with title, description, due date and priority.</p>
+      </a>
+      <a href="task-list.html" class="card" style="text-decoration:none;display:block;">
+        <div style="font-size:28px;margin-bottom:10px;">📋</div>
+        <strong style="font-family:var(--font-head)">View All Tasks</strong>
+        <p class="text-muted mt-4">Browse, filter, and manage your full task list.</p>
+      </a>
+      <a href="task-detail.html" class="card" style="text-decoration:none;display:block;">
+        <div style="font-size:28px;margin-bottom:10px;">🔍</div>
+        <strong style="font-family:var(--font-head)">Task Detail</strong>
+        <p class="text-muted mt-4">View full details, mark as complete, or delete a task.</p>
+      </a>
+      <a href="about.html" class="card" style="text-decoration:none;display:block;">
+        <div style="font-size:28px;margin-bottom:10px;">ℹ️</div>
+        <strong style="font-family:var(--font-head)">About & Help</strong>
+        <p class="text-muted mt-4">Learn how to navigate and use TaskFlow effectively.</p>
+      </a>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="mt-8">
+      <div class="section-title">Recent Tasks</div>
+      <div class="card">
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Due Date</th>
+              <th>Priority</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Design landing page</td>
+              <td>2026-06-20</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="badge badge-pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td>Write unit tests</td>
+              <td>2026-06-22</td>
+              <td><span class="badge badge-medium">Medium</span></td>
+              <td><span class="badge badge-pending">Pending</span></td>
+            </tr>
+            <tr>
+              <td>Set up CI/CD pipeline</td>
+              <td>2026-06-18</td>
+              <td><span class="badge badge-high">High</span></td>
+              <td><span class="badge badge-done">Completed</span></td>
+            </tr>
+            <tr>
+              <td>Update documentation</td>
+              <td>2026-06-25</td>
+              <td><span class="badge badge-low">Low</span></td>
+              <td><span class="badge badge-done">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

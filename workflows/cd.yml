@@ -1,0 +1,35 @@
+name: CD – Deploy to Render
+
+# ─────────────────────────────────────────────────────────────────
+# Trigger: fires on every push to "develop" (i.e. when a PR is merged)
+# ─────────────────────────────────────────────────────────────────
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+    environment: development   # <-- grants access to RENDER_DEPLOY_HOOK_URL
+
+    steps:
+      # Step 1 – Checkout repository code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Step 2 – (Environment declared above on the job)
+      # The "development" environment provides RENDER_DEPLOY_HOOK_URL
+
+      # Step 3 – Trigger Render deployment via deploy hook (curl POST)
+      - name: Deploy to Render
+        run: |
+          echo "🚀 Triggering Render deployment..."
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+
+      # Step 4 – Print timestamped confirmation
+      - name: Deployment Confirmation
+        run: |
+          echo "✅ Deployment triggered at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "Live at your Render service URL."

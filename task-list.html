@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow – Task List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">Task<span>Flow</span></div>
+    <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+    <a href="add-task.html"><span class="nav-icon">➕</span> Add Task</a>
+    <a href="task-list.html" class="active"><span class="nav-icon">📋</span> Task List</a>
+    <a href="task-detail.html"><span class="nav-icon">🔍</span> Task Detail</a>
+    <a href="contact.html"><span class="nav-icon">📬</span> Contact</a>
+    <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+    <a href="about.html"><span class="nav-icon">ℹ️</span> About</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="content">
+    <div class="flex items-center justify-between mb-4">
+      <div class="page-header" style="margin-bottom:0">
+        <h1>📋 Task List</h1>
+        <p>All your tasks in one place. Filter by status.</p>
+      </div>
+      <a href="add-task.html" class="btn btn-primary btn-sm">+ New Task</a>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterTasks('all', this)">All</button>
+      <button class="filter-btn" onclick="filterTasks('pending', this)">Pending</button>
+      <button class="filter-btn" onclick="filterTasks('completed', this)">Completed</button>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+      <table class="task-table" id="task-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Task Title</th>
+            <th>Due Date</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="task-body">
+          <tr data-status="completed">
+            <td>1</td>
+            <td>Set up GitHub repository</td>
+            <td>2026-06-10</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td><span class="badge badge-done">Completed</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+          <tr data-status="pending">
+            <td>2</td>
+            <td>Design landing page</td>
+            <td>2026-06-20</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+          <tr data-status="pending">
+            <td>3</td>
+            <td>Write unit tests</td>
+            <td>2026-06-22</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+          <tr data-status="completed">
+            <td>4</td>
+            <td>Set up CI/CD pipeline</td>
+            <td>2026-06-18</td>
+            <td><span class="badge badge-high">High</span></td>
+            <td><span class="badge badge-done">Completed</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+          <tr data-status="pending">
+            <td>5</td>
+            <td>Update API documentation</td>
+            <td>2026-06-25</td>
+            <td><span class="badge badge-low">Low</span></td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+          <tr data-status="pending">
+            <td>6</td>
+            <td>Fix mobile navigation bug</td>
+            <td>2026-06-28</td>
+            <td><span class="badge badge-medium">Medium</span></td>
+            <td><span class="badge badge-pending">Pending</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+          <tr data-status="completed">
+            <td>7</td>
+            <td>Code review for PR #14</td>
+            <td>2026-06-15</td>
+            <td><span class="badge badge-low">Low</span></td>
+            <td><span class="badge badge-done">Completed</span></td>
+            <td><a href="task-detail.html" class="btn btn-outline btn-sm">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</div>
+
+<script>
+function filterTasks(status, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const rows = document.querySelectorAll('#task-body tr');
+  rows.forEach(row => {
+    if (status === 'all' || row.dataset.status === status) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

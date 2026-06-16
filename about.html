@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow – About & Help</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">Task<span>Flow</span></div>
+    <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+    <a href="add-task.html"><span class="nav-icon">➕</span> Add Task</a>
+    <a href="task-list.html"><span class="nav-icon">📋</span> Task List</a>
+    <a href="task-detail.html"><span class="nav-icon">🔍</span> Task Detail</a>
+    <a href="contact.html"><span class="nav-icon">📬</span> Contact</a>
+    <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+    <a href="about.html" class="active"><span class="nav-icon">ℹ️</span> About</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="content">
+    <div class="page-header">
+      <h1>ℹ️ About TaskFlow</h1>
+      <p>What is TaskFlow and how do you use it?</p>
+    </div>
+
+    <!-- About Card -->
+    <div class="card mb-4" style="max-width:720px;">
+      <div class="section-title">What is TaskFlow?</div>
+      <p style="color:var(--muted); line-height:1.8;">
+        TaskFlow is a lightweight, browser-based task management application designed for individuals and small teams. It helps you track work items from creation to completion without any backend — pure HTML, CSS, and a shared style system.
+      </p>
+      <p style="color:var(--muted); line-height:1.8; margin-top:12px;">
+        This application was built as part of a DevOps CI/CD pipeline assignment, demonstrating how a team can collaboratively build and deploy a containerised web app using GitHub Actions, Docker, and Render.
+      </p>
+    </div>
+
+    <!-- How to Use -->
+    <div class="card mb-4" style="max-width:720px;">
+      <div class="section-title">📖 How to Use</div>
+
+      <div class="detail-row">
+        <div class="detail-label">Step 1</div>
+        <div class="detail-value"><strong>Add a Task</strong> — Navigate to <a href="add-task.html">Add Task</a> and fill in the title, description, due date, and priority. Click <em>Save Task</em>.</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Step 2</div>
+        <div class="detail-value"><strong>View Your Tasks</strong> — Go to <a href="task-list.html">Task List</a> to see all tasks. Use filter buttons (All / Pending / Completed) to narrow the view.</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Step 3</div>
+        <div class="detail-value"><strong>Inspect a Task</strong> — Click <em>View</em> on any task row to open its <a href="task-detail.html">detail page</a>, where you can read the full description.</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Step 4</div>
+        <div class="detail-value"><strong>Complete or Delete</strong> — On the detail page, mark a task as complete or delete it permanently using the action buttons.</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Step 5</div>
+        <div class="detail-value"><strong>Dashboard</strong> — Return to the <a href="index.html">Dashboard</a> at any time to see summary counts and recent task activity.</div>
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="card" style="max-width:720px;">
+      <div class="section-title">🛠 Tech Stack</div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:4px;">
+        <span class="badge badge-high" style="font-size:13px; padding:6px 14px;">HTML5</span>
+        <span class="badge badge-medium" style="font-size:13px; padding:6px 14px;">CSS3</span>
+        <span class="badge badge-low" style="font-size:13px; padding:6px 14px;">JavaScript</span>
+        <span class="badge badge-done" style="font-size:13px; padding:6px 14px;">Docker</span>
+        <span class="badge badge-pending" style="font-size:13px; padding:6px 14px;">GitHub Actions</span>
+        <span class="badge badge-done" style="font-size:13px; padding:6px 14px;">Render</span>
+      </div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow – FAQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">Task<span>Flow</span></div>
+    <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+    <a href="add-task.html"><span class="nav-icon">➕</span> Add Task</a>
+    <a href="task-list.html"><span class="nav-icon">📋</span> Task List</a>
+    <a href="task-detail.html"><span class="nav-icon">🔍</span> Task Detail</a>
+    <a href="contact.html"><span class="nav-icon">📬</span> Contact</a>
+    <a href="faq.html" class="active"><span class="nav-icon">❓</span> FAQ</a>
+    <a href="about.html"><span class="nav-icon">ℹ️</span> About</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="content">
+    <div class="page-header">
+      <h1>❓ Frequently Asked Questions</h1>
+      <p>Quick answers to common questions about TaskFlow.</p>
+    </div>
+
+    <div style="max-width:720px;">
+
+      <!-- FAQ Items -->
+      <div class="card mb-4">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>What is TaskFlow?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            TaskFlow is a lightweight, browser-based task management tool built to help individuals and small teams track tasks from creation to completion. It runs entirely in the browser with no backend required.
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>How do I add a new task?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            Click on <strong>Add Task</strong> in the sidebar. Fill in the task title, description, due date, and select a priority (High / Medium / Low). Then click <em>Save Task</em>.
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>Can I filter tasks by status?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            Yes! Head to the <a href="task-list.html">Task List</a> page and use the filter buttons — <strong>All</strong>, <strong>Pending</strong>, or <strong>Completed</strong> — to view only the tasks matching that status.
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>How do I mark a task as complete?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            Navigate to the <a href="task-detail.html">Task Detail</a> page by clicking <em>View</em> on any task in the list. Then click the <strong>Mark as Complete</strong> button. The status badge will update immediately.
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>How do I delete a task?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            Open the task from the Task List, then click the <strong>Delete Task</strong> button on the Task Detail page. You will be asked to confirm before the task is removed permanently.
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>How is TaskFlow deployed?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            TaskFlow is containerised using Docker (nginx-based) and deployed automatically via a GitHub Actions CD pipeline to Render. Every time a Pull Request is merged into the <code style="background:var(--bg);padding:2px 6px;border-radius:4px;">develop</code> branch, the CD workflow triggers a fresh deployment — no manual steps required.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">
+            <span>Where can I get more help?</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">
+            Visit the <a href="about.html">About page</a> for a usage guide, or go to the <a href="contact.html">Contact page</a> to send a message to the TaskFlow team.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<style>
+.faq-item { cursor: pointer; user-select: none; }
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  padding: 4px 0;
+}
+.faq-arrow { color: var(--accent); transition: transform 0.2s; font-size: 12px; }
+.faq-a {
+  display: none;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-item.open .faq-a { display: block; }
+</style>
+
+<script>
+function toggleFaq(item) {
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>

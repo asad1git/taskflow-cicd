@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow – Add Task</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="logo">Task<span>Flow</span></div>
+    <a href="index.html"><span class="nav-icon">🏠</span> Dashboard</a>
+    <a href="add-task.html" class="active"><span class="nav-icon">➕</span> Add Task</a>
+    <a href="task-list.html"><span class="nav-icon">📋</span> Task List</a>
+    <a href="task-detail.html"><span class="nav-icon">🔍</span> Task Detail</a>
+    <a href="contact.html"><span class="nav-icon">📬</span> Contact</a>
+    <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+    <a href="about.html"><span class="nav-icon">ℹ️</span> About</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="content">
+    <div class="page-header">
+      <h1>➕ Add New Task</h1>
+      <p>Fill in the details below to create a new task.</p>
+    </div>
+
+    <div class="card" style="max-width: 640px;">
+      <div class="form-group">
+        <label for="task-title">Task Title</label>
+        <input type="text" id="task-title" placeholder="e.g. Fix login bug" />
+      </div>
+
+      <div class="form-group">
+        <label for="task-desc">Description</label>
+        <textarea id="task-desc" placeholder="Describe the task in detail..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="due-date">Due Date</label>
+        <input type="date" id="due-date" />
+      </div>
+
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select id="priority">
+          <option value="">-- Select Priority --</option>
+          <option value="high">🔴 High</option>
+          <option value="medium">🟡 Medium</option>
+          <option value="low">🟢 Low</option>
+        </select>
+      </div>
+
+      <div class="flex gap-3 mt-4">
+        <button class="btn btn-primary" onclick="handleSubmit()">Save Task</button>
+        <a href="index.html" class="btn btn-outline">Cancel</a>
+      </div>
+
+      <!-- Success Message (hidden by default) -->
+      <div id="success-msg" style="display:none; margin-top:20px; padding:14px 18px;
+        background:rgba(45,212,191,0.12); border:1px solid var(--success);
+        border-radius:var(--radius); color:var(--success); font-size:14px; font-weight:600;">
+        ✅ Task saved successfully!
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script>
+function handleSubmit() {
+  const title = document.getElementById('task-title').value.trim();
+  const due   = document.getElementById('due-date').value;
+  const prio  = document.getElementById('priority').value;
+
+  if (!title) {
+    alert('Please enter a task title.');
+    return;
+  }
+  if (!due) {
+    alert('Please select a due date.');
+    return;
+  }
+  if (!prio) {
+    alert('Please select a priority level.');
+    return;
+  }
+
+  document.getElementById('success-msg').style.display = 'block';
+
+  // Reset form
+  document.getElementById('task-title').value = '';
+  document.getElementById('task-desc').value  = '';
+  document.getElementById('due-date').value   = '';
+  document.getElementById('priority').value   = '';
+
+  setTimeout(() => {
+    document.getElementById('success-msg').style.display = 'none';
+  }, 3000);
+}
+</script>
+</body>
+</html>
